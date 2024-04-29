@@ -21,7 +21,7 @@
 
 <body>
 
-<form name="frm" method="post" action="">
+<form name="frm" method="post" action="deptWriteSave.do">
 	<table>
 		<tr>
 			<th>부서번호</th>
