@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
 
+<!-- iBATIS -->
 <sqlMap namespace="DeptSpace">
 
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
@@ -9,5 +10,9 @@
 	<insert id="deptDAO.InserDept">
 		insert into dept(deptno, dname, loc) values(#deptno#, #dname#, #loc#)
 	</insert>
+	
+	<select id="deptDAO.SelectDeptList" resultClass="egovMap">
+		select deptno, dname, loc from dept
+	</select>
 
 </sqlMap>

@@ -1,5 +1,7 @@
 package egovframework.example.sample.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -16,8 +18,14 @@ public class DeptServiceImpl extends EgovAbstractServiceImpl implements DeptServ
 	
 	@Override
 	public String InsertDept(DeptVO vo) throws Exception {
-		
+		// 프로그램 작성
 		return deptDAO.InsertDept(vo);
+	}
+
+	@Override
+	public List<?> SelectDeptList(DeptVO vo) throws Exception {
+		
+		return deptDAO.SelectDeptList(vo);
 	}
 
 	
