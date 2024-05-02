@@ -72,4 +72,14 @@ public class DeptController {
 		}
 		return "";
 	}
+	
+	@RequestMapping(value="/deptModifyWrite.do")
+	public String selectDeptModify(int deptno, ModelMap model) throws Exception {
+		
+		DeptVO vo = deptService.selectDeptDetail(deptno);
+		
+		model.addAttribute("vo", vo);
+		return "dept/deptModifyWrite";
+	}
+	
 }

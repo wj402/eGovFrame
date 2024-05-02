@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상세보기</title>
+<title>Insert title here</title>
 </head>
 
 <style>
@@ -27,24 +27,23 @@
 
 <body>
 
-<form name="frm" method="post" action="deptWriteSave.do">
+<form name="frm" method="post" action="deptModifySave.do">
 	<table>
 		<tr>
 			<th>부서번호</th>
-			<td>${deptVO.deptno}</td>
+			<td><input type="text" name="deptno" value="${vo.deptno}" readonly></td>
 		</tr>
 		<tr>
 			<th>부서이름</th>
-			<td>${deptVO.dname}</td>
+			<td><input type="text" name="dname" value="${vo.dname}"></td>
 		</tr>
 		<tr>
 			<th>부서위치</th>
-			<td>${deptVO.loc}</td>
+			<td><input type="text" name="loc" value="${vo.loc}"></td>
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button type="button" onclick="location='deptModifyWrite.do?deptno=${deptVO.deptno} '">수정</button>
-				<button type="button" onclick="location='deptDelete.do?deptno=${deptVO.deptno}'">삭제</button>
+				<button type="submit">저장</button>
 			</th>
 		</tr>
 	</table>	
