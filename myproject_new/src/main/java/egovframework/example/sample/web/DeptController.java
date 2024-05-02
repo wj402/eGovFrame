@@ -82,4 +82,17 @@ public class DeptController {
 		return "dept/deptModifyWrite";
 	}
 	
+	@RequestMapping(value="/deptModifySave.do")
+	public String updateDept(DeptVO vo) throws Exception {
+		
+		int result = deptService.updateDept(vo);
+		if(result == 1) {
+			System.out.println("수정완료");
+		} else {
+			System.out.println("수정실패");
+		}
+		
+		return "";
+	}
+	
 }
