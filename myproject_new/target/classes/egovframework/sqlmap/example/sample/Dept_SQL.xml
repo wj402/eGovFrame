@@ -22,5 +22,9 @@
 	<delete id="deptDAO.deleteDept">
 		delete from dept where deptno=#deptno#
 	</delete>
+	
+	<update id="deptDAO.updateDept">
+		update dept set dname=#dname#, loc=#loc# where deptno=#deptno#
+	</update>
 
 </sqlMap>
