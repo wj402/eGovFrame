@@ -48,9 +48,10 @@ function fn_submit() {
 			<td><input type="text" name="name"></td>
 		</tr>
 		<tr>
-			<th>
+			<th colspan="2">
 				<button type="submit" onclick="fn_submit(); return false;">저장</button>
 				<button type="reset">취소</button>
+			
 			</th>
 		</tr>
 	</table>
