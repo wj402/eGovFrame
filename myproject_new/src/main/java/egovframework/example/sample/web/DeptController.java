@@ -60,4 +60,16 @@ public class DeptController {
 		model.addAttribute("deptVO", vo);
 		return "dept/deptDetail";
 	}
+	
+	@RequestMapping(value="/deptDelete.do")
+	public String deleteDept(int deptno) throws Exception {
+		
+		int result = deptService.deleteDept(deptno);
+		if(result == 1) {
+			System.out.println("삭제완료");
+		} else {
+			System.out.println("삭제실패");
+		}
+		return "";
+	}
 }

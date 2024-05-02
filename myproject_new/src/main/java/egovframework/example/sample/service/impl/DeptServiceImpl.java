@@ -33,6 +33,12 @@ public class DeptServiceImpl extends EgovAbstractServiceImpl implements DeptServ
 		
 		return deptDAO.selectDeptDetail(deptno);
 	}
+
+	@Override
+	public int deleteDept(int deptno) throws Exception {
+
+		return deptDAO.deleteDept(deptno);
+	}
 	
 	
 
