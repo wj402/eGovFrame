@@ -42,12 +42,22 @@ public class DeptController {
 	}
 	
 	@RequestMapping(value="/deptList.do")
-	public String selectDeptlist(DeptVO vo,ModelMap model) throws Exception {
+	public String selectDeptList(DeptVO vo, ModelMap model) throws Exception {
 		
 		List<?> list = deptService.SelectDeptList(vo);
 		
 		System.out.println(list);
 		model.addAttribute("resultList", list);
 		return "dept/deptList";
+	}
+	
+	@RequestMapping(value="/deptDetail.do")
+	public String selectDeptDetail(int deptno, ModelMap model) throws Exception {
+		
+		DeptVO vo = deptService.selectDeptDetail(deptno);
+		System.out.print("부서번호:"+vo.getDeptno());
+		
+		model.addAttribute("deptVO", vo);
+		return "dept/deptDetail";
 	}
 }
