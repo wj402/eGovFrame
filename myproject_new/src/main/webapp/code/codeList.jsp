@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사원목록</title>
+<title>코드목록</title>
 </head>
 
 <style>
@@ -26,22 +26,30 @@
 </style>
 
 <body>
-	<table>
-		<caption>부서목록</caption>
-		<tr>
-			<th>부서번호</th>
-			<th>부서이름</th>
-			<th>부서위치</th>
+<table>
+	<caption>코드목록</caption>
+	<colgroup>
+		<col width="20%" />	
+		<col width="40%" />
+		<col width="40$" />
+	</colgroup>
+	<tr>
+		<th>번호</th>
+		<th>그룹명</th>
+		<th>코드명</th>
+	</tr>
+	<c:set var="count" value="1" />
+	<c:forEach var="list" items="${resultList}" >
+	
+		<tr align="center">
+			<td><c:out value="${count }" /></td>
+			<td>${list.gid }</td>
+			<td>${list.name }</td>
 		</tr>
+		<c:set var="count" value="${count+1}" />
+	</c:forEach>
+	
+</table>
 
-		<c:forEach var="result" items="${resultList}" varStatus="status">
-			<tr>
-				<td>${ result.deptno }</td>
-				<td><a href="deptDetail.do?deptno=${result.deptno } ">${ result.dname }</a></td>
-				<td>${ result.loc }</td>
-			</tr>
-		</c:forEach>
-		
-	</table>
 </body>
 </html>

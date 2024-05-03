@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사원목록</title>
+<title>상세보기</title>
 </head>
 
 <style>
@@ -26,22 +26,29 @@
 </style>
 
 <body>
+
+<form name="frm" method="post" action="deptWriteSave.do">
 	<table>
-		<caption>부서목록</caption>
 		<tr>
 			<th>부서번호</th>
-			<th>부서이름</th>
-			<th>부서위치</th>
+			<td>${deptVO.deptno}</td>
 		</tr>
+		<tr>
+			<th>부서이름</th>
+			<td>${deptVO.dname}</td>
+		</tr>
+		<tr>
+			<th>부서위치</th>
+			<td>${deptVO.loc}</td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<button type="button" onclick="location='deptModifyWrite.do?deptno=${deptVO.deptno} '">수정</button>
+				<button type="button" onclick="location='deptDelete.do?deptno=${deptVO.deptno}'">삭제</button>
+			</th>
+		</tr>
+	</table>	
+</form>
 
-		<c:forEach var="result" items="${resultList}" varStatus="status">
-			<tr>
-				<td>${ result.deptno }</td>
-				<td><a href="deptDetail.do?deptno=${result.deptno } ">${ result.dname }</a></td>
-				<td>${ result.loc }</td>
-			</tr>
-		</c:forEach>
-		
-	</table>
 </body>
 </html>

@@ -14,5 +14,17 @@
 	<select id="deptDAO.SelectDeptList" resultClass="egovMap">
 		select deptno, dname, loc from dept
 	</select>
+	
+	<select id="deptDAO.selectDeptDetail" resultClass="deptVO">
+		select deptno, dname, loc from dept where deptno=#deptno#
+	</select>
+	
+	<delete id="deptDAO.deleteDept">
+		delete from dept where deptno=#deptno#
+	</delete>
+	
+	<update id="deptDAO.updateDept">
+		update dept set dname=#dname#, loc=#loc# where deptno=#deptno#
+	</update>
 
 </sqlMap>
