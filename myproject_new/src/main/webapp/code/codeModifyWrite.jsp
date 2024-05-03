@@ -38,7 +38,8 @@ function fn_submit() {
 
 <body>
 
-<form name="frm" method="post" action="codeWriteSave.do">
+<form name="frm" method="post" action="codeModifySave.do">
+<input type="hidden" name="code" value="${vo.code}">
 	<table>
 		<tr>
 			<th>분류</th>

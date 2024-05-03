@@ -66,4 +66,12 @@ public class CodeController {
 		
 		return "code/codeModifyWrite";
 	}
+	
+	@RequestMapping(value="/codeModifySave.do")
+	public String updateCodes(CodeVO vo) throws Exception {
+		
+		int result = codeService.updateCodes(vo);
+		
+		return "redirect:codeList.do";
+	}
 }

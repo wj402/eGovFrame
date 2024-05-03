@@ -28,4 +28,9 @@
 	<select id="codeDAO.selectCodesDetail" resultClass="codeVO">
 		SELECT code,gid,name FROM codes WHERE code=#code#
 	</select>
+	
+	<update id="codeDAO.updateCodes">
+		UPDATE codes SET 	gid=#gid#, name=#name# WHERE code=#code#
+									
+	</update>
 </sqlMap>
