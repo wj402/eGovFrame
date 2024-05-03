@@ -32,7 +32,7 @@
 		}
 	}
 	
-	function fn_update((code) {
+	function fn_update(code) {
 		location = "codeModifyWrite.do?code="+code;
 	}
 </script>
