@@ -27,4 +27,8 @@ public class CodeDAO extends EgovAbstractDAO {
 		return delete("codeDAO.deleteCodes", code);
 	}
 
+	public CodeVO selectCodesDetail(int code) {
+		return (CodeVO) select("codeDAO.selectCodesDetail", code);
+	}
+
 }

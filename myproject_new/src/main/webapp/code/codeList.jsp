@@ -31,6 +31,10 @@
 			location = "codeDelete.do?code="+code;
 		}
 	}
+	
+	function fn_update((code) {
+		location = "codeModifyWrite.do?code="+code;
+	}
 </script>
 
 <body>
@@ -59,7 +63,7 @@
 			<td>${list.gid }</td>
 			<td>${list.name }</td>
 			<td>
-				<button type="button">수정</button>
+				<button type="button" onclick="fn_update('${list.code}')">수정</button>
 				<button type="button" onclick="fn_delete('${list.code}')">삭제</button>
 			</td>
 		</tr>

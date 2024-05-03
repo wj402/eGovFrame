@@ -57,4 +57,13 @@ public class CodeController {
 		int result = codeService.deleteCodes(code);
 		return "redirect:codeList.do";
 	}
+	
+	@RequestMapping(value="/codeModifyWrite.do")
+	public String selectCodesDetail(int code, ModelMap model) throws Exception {
+		
+		CodeVO vo = codeService.selectCodesDetail(code);
+		model.addAttribute("vo", vo);
+		
+		return "code/codeModifyWrite";
+	}
 }
