@@ -62,17 +62,27 @@
 		}
 		$("#pass").val($.trim($("#pass").val()));
 		
-		/* if( document.frm.title.value == "" ) {
-			alert("제목을 입력해주세요!");
-			document.frm.title.focus();
-			return false;
+		var formData = $("#frm").serialize();
+		
+		// ajax: 비동기 전송방식의 기능을 가지고 있는 jquery의 함수
+		$.ajax({
+			type: "POST",
+			data: formData,
+			url: "boardWriteSave.do",
+			dataType: "text",
+			success:function(data) {
+			  //alert(data);
+			  if(data == "ok") { // 저장 처리 후 리턴 값 확인
+			  	alert("저장완료");
+				location = "boardList.do";
+			} else {
+				alert("저장 실패했습니다. 다시 시도해 주세요.");
+			}
+		},
+		error: function() {
+			alert("오류발생 ");
 		}
-		if( document.frm.pass.value == "" ) {
-			alert("암호을 입력해주세요!");
-			document.frm.pass.focus();
-			return false;
-		}
-		*/
+		});
 		
 		// document.frm.submit(); // 동기전송방식
 	}
@@ -80,7 +90,7 @@
 
 <body>
 
-<form name="frm" id="frm" method="post" action="boardWriteSave.do">
+<form id="frm">
 	<table>
 		<caption>게시판등록</caption>
 		<tr>
