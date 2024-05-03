@@ -20,4 +20,8 @@
 	<select id="codeDAO.selectCodesCount" resultClass="java.lang.Integer">
 		SELECT COUNT(*) cnt FROM codes
 	</select>
+	
+	<delete id="codeDAO.deleteCodes" >
+		DELETE FROM codes WHERE code=#code#
+	</delete>
 </sqlMap>

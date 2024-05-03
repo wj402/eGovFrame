@@ -50,4 +50,11 @@ public class CodeController {
 		model.addAttribute("resultList", list);
 		return "code/codeList";
 	}
+	
+	@RequestMapping(value="/codeDelete.do")
+	public String deleteCode(int code) throws Exception {
+		
+		int result = codeService.deleteCodes(code);
+		return "redirect:codeList.do";
+	}
 }
