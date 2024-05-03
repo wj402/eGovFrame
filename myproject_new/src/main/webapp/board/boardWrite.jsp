@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 등록 화면</title>
+<script src="/myproject_new/script/jquery-3.6.0.js"></script>
+<script src="/myproject_new/script/jquery-ui.js"></script>
+
 </head>
 
 <style>
@@ -35,6 +38,46 @@
 	}
 </style>
 
+<script>
+
+	$(function(){
+		$("#title").val("제목입력");
+	});
+
+	function fn_submit() {
+		
+		// trim() -> 앞뒤 공백 제거, java, jsp
+		
+		if( $.trim( $("#title").val() ) == "") {
+			alert("제목을 입력해주세요");
+			$("#title").focus();
+			return false;
+		}
+		$("#title").val($.trim($("#title").val()));
+		
+		if ( $.trim( $("#pass").val() ) == "") {
+			alert("암호를 입력해주세요");
+			$("#pass").focus();
+			return false;
+		}
+		$("#pass").val($.trim($("#pass").val()));
+		
+		/* if( document.frm.title.value == "" ) {
+			alert("제목을 입력해주세요!");
+			document.frm.title.focus();
+			return false;
+		}
+		if( document.frm.pass.value == "" ) {
+			alert("암호을 입력해주세요!");
+			document.frm.pass.focus();
+			return false;
+		}
+		*/
+		
+		// document.frm.submit(); // 동기전송방식
+	}
+</script>
+
 <body>
 
 <form name="frm" id="frm" method="post" action="boardWriteSave.do">
@@ -58,7 +101,7 @@
 		</tr>
 		<tr>
 			<th colspan="2">
-				<button type="submit">저장</button>
+				<button type="submit" onclick="fn_submit();return false;">저장</button>
 				<button type="reset">취소</button>
 			</th>
 		</tr>
