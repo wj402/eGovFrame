@@ -16,4 +16,8 @@
 				name FROM codes
 								ORDER BY gid ASC
 	</select>
+	
+	<select id="codeDAO.selectCodesCount" resultClass="java.lang.Integer">
+		SELECT COUNT(*) cnt FROM codes
+	</select>
 </sqlMap>

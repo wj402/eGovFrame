@@ -27,7 +27,10 @@
 
 <body>
 <table>
-	<caption>코드목록</caption>
+	<caption>
+		<div>코드목록</div> <br>
+		<div style="width:100%; text-align:left;">Total : ${resultTotal } 개</div>
+	</caption>
 	<colgroup>
 		<col width="20%" />	
 		<col width="40%" />
