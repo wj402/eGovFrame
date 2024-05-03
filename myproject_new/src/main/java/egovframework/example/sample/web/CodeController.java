@@ -1,8 +1,11 @@
 package egovframework.example.sample.web;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import egovframework.example.sample.service.CodeService;
@@ -32,5 +35,15 @@ public class CodeController {
 		}
 		// UPDATE, DELETE --> 0
 		return "redirect:codeList.do";
+	}
+	
+	@RequestMapping(value="/codeList.do")
+	public String selectCodeList(CodeVO vo, ModelMap model) throws Exception {
+		
+		List<?> list = codeService.selectCodesList(vo);
+		
+		System.out.println("list ====>" + list);
+		model.addAttribute("resultList", list);
+		return "code/codeList";
 	}
 }

@@ -1,5 +1,7 @@
 package egovframework.example.sample.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -16,6 +18,11 @@ public class CodeServiceImpl implements CodeService {
 	@Override
 	public String insertCodes(CodeVO vo) throws Exception {
 		return codeDAO.insertCodes(vo);
+	}
+
+	@Override // 다형성(오버라이딩, 오버로딩)
+	public List<?> selectCodesList(CodeVO vo) throws Exception {
+		return codeDAO.selectCodesList(vo);
 	}
 
 }
