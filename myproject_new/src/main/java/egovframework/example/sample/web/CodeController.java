@@ -40,9 +40,13 @@ public class CodeController {
 	@RequestMapping(value="/codeList.do")
 	public String selectCodeList(CodeVO vo, ModelMap model) throws Exception {
 		
+		int total = codeService.selectCodesCount(vo);
+		
 		List<?> list = codeService.selectCodesList(vo);
 		
 		System.out.println("list ====>" + list);
+		
+		model.addAttribute("resultTotal", total);
 		model.addAttribute("resultList", list);
 		return "code/codeList";
 	}

@@ -25,4 +25,10 @@ public class CodeServiceImpl implements CodeService {
 		return codeDAO.selectCodesList(vo);
 	}
 
+	@Override
+	public int selectCodesCount(CodeVO vo) throws Exception {
+		return codeDAO.selectCodesCount(vo);
+	}
+
+
 }
