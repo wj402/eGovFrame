@@ -30,5 +30,10 @@ public class CodeServiceImpl implements CodeService {
 		return codeDAO.selectCodesCount(vo);
 	}
 
+	@Override
+	public int deleteCodes(int code) throws Exception {
+		return codeDAO.deleteCodes(code);
+	}
+
 
 }
