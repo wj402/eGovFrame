@@ -24,4 +24,8 @@
 	<delete id="codeDAO.deleteCodes" >
 		DELETE FROM codes WHERE code=#code#
 	</delete>
+	
+	<select id="codeDAO.selectCodesDetail" resultClass="codeVO">
+		SELECT code,gid,name FROM codes WHERE code=#code#
+	</select>
 </sqlMap>

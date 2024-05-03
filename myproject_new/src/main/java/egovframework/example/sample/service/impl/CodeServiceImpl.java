@@ -35,5 +35,11 @@ public class CodeServiceImpl implements CodeService {
 		return codeDAO.deleteCodes(code);
 	}
 
+	@Override
+	public CodeVO selectCodesDetail(int code) throws Exception {
+		
+		return codeDAO.selectCodesDetail(code);
+	}
+
 
 }
