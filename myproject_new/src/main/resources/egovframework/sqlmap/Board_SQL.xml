@@ -23,7 +23,7 @@
 				title,
 				name,
 				hits,
-				rdate
+				to_char(rdate,'yyyy-mm-dd') rdate
 		FROM
 				nboard
 		
