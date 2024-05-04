@@ -17,4 +17,16 @@
 			sysdate )
 	</insert>
 	
+	<!-- List > HashMap -->
+	<select id="boardDAO.selectNBoardList" resultClass="egovMap">
+		SELECT 	unq,
+				title,
+				name,
+				hits,
+				rdate
+		FROM
+				nboard
+		
+		ORDER BY unq DESC
+	</select>
 </sqlMap>
