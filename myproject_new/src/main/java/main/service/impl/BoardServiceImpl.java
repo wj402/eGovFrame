@@ -41,5 +41,10 @@ public class BoardServiceImpl implements BoardService {
 	public int updateNBoardHits(int unq) throws Exception {
 		return boardDAO.updateNBoardHits(unq);
 	}
+
+	@Override
+	public int updateNBoard(BoardVO vo) throws Exception {
+		return boardDAO.updateNBoard(vo);
+	}
 	
 }

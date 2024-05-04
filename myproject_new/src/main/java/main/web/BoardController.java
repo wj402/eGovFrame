@@ -113,4 +113,14 @@ public class BoardController {
 		return "board/boardModifyWrite";
 	}
 	
+	@RequestMapping("boardModifySave.do")
+	@ResponseBody
+	public String updateNBoard(BoardVO vo) throws Exception {
+		
+		int result = boardService.updateNBoard(vo);	// int result = 1;
+		
+		
+		return result+"";
+	}
+	
 }

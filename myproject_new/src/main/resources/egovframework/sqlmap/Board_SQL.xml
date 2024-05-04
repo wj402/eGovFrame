@@ -67,4 +67,12 @@
 		update nboard set hits=hits+1 where unq=#unq#
 	</update>
 	
+	<update id="boardDAO.updateNBoard">
+		UPDATE nboard SET
+				title = #title#,
+				name = #name#,
+				content = #content#
+			WHERE
+				unq = #unq#
+	</update>
 </sqlMap>

@@ -44,18 +44,18 @@
 <script>
 
 	$(function(){
-		$("#title").val("제목입력");
+		// $("#title").val("제목입력");
 	});
 
 	function fn_submit() {
 		
 		// trim() -> 앞뒤 공백 제거, java, jsp
-		$("#title").val($.trim($("#title").val()));
-		if( $("#title").val()  == "") {
-			alert("제목을 입력해주세요");
+		if ( $.trim( $("#title").val() ) == "") {
+			alert("암호를 입력해주세요");
 			$("#title").focus();
 			return false;
 		}
+		$("#title").val($.trim($("#title").val()));
 		
 		if ( $.trim( $("#pass").val() ) == "") {
 			alert("암호를 입력해주세요");
@@ -78,13 +78,13 @@
 			dataType: "text",			// 리턴 타입
 			
 			/* 전송 후 세팅 */
-			success:function(result) {
+			success:function(data) {
 			  //alert(data);
-			  if(result == "ok") { // 저장 처리 후 리턴 값 확인
+			  if(data == "1") { // 저장 처리 후 리턴 값 확인
 			  	alert("저장완료");
 				location = "boardList.do";
 			} else {
-				alert("저장 실패했습니다. 다시 시도해 주세요.");
+				alert("저장실패\n관리자에게 연락해주세요. ");
 			}
 		},
 		error: function() {
@@ -99,13 +99,13 @@
 
 <form id="frm">
 
-<input type="hidden" name="unq" value="${boardVO.unq }">
+<input type="hidden" name="unq" value="${boardVO.unq}">
 
 	<table>
 		<caption>게시판 수정 화면</caption>
 		<tr>
 			<th width="20%"><label for="title">제목</label></th>
-			<td width="80%"><input type="text" name="title" id="title" class="input1" value="${boardVO.title }"></td>
+			<td width="80%"><input type="text" name="title" id="title" class="input1" value="${boardVO.title}"></td>
 		</tr>
 		<tr>
 			<th><label for="pass">암호</label></th>
