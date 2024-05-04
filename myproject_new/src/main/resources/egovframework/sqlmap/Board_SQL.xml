@@ -54,9 +54,13 @@
 	
 	<select id="boardDAO.selectNBoardDetail" resultClass="boardVO">
 		select 
-			unq,title,pass,name,content,hits,rdate 
+			unq,
+			title,
+			name,
+			content,
+			to_char(rdate, 'yyyy-mm-dd') rdate
 		from nboard
-			where unq = #unq#
+			where unq=#unq#
 	</select>
 	
 	
