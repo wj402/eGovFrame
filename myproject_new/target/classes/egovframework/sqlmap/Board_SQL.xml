@@ -19,14 +19,30 @@
 	
 	<!-- List > HashMap -->
 	<select id="boardDAO.selectNBoardList" resultClass="egovMap">
-		SELECT 	unq,
-				title,
-				name,
-				hits,
-				to_char(rdate,'yyyy-mm-dd') rdate
-		FROM
-				nboard
-		
-		ORDER BY unq DESC
+		<![CDATA[
+			SELECT b.* FROM (
+				SELECT rownum rn, a.* FROM (
+						SELECT 	
+				               	unq,			
+								title,
+								name,
+								hits,
+								to_char(rdate,'yyyy-mm-dd') rdate
+						FROM
+						nboard
+							WHERE #searchGubun# like '%#searchText#%'
+		                
+					ORDER BY unq DESC 
+			) a ) b
+			WHERE rn >= #startIndex# and rn <= #endIndex#
+		]]>
+	
 	</select>
+	
+	<select id="boardDAO.selectNBoardTotal" resultClass="java.lang.Integer">
+		SELECT COUNT(*) total FROM nboard
+	</select>
+	
+	
+	
 </sqlMap>

@@ -74,7 +74,7 @@
 			  //alert(data);
 			  if(data == "ok") { // 저장 처리 후 리턴 값 확인
 			  	alert("저장완료");
-				//location = "boardList.do";
+				location = "boardList.do";
 			} else {
 				alert("저장 실패했습니다. 다시 시도해 주세요.");
 			}
