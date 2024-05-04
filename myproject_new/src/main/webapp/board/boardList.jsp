@@ -45,6 +45,10 @@
 
 <!-- 번호, 제목, 글쓴이, 등록일, 조회수 -->
 <table>
+	<caption>
+		<div>일반게시판 목록</div>
+		<div>Total : ${total }</div>
+	</caption>
 	<tr>
 		<th width="15%">번호</th>
 		<th width="40%">제목</th>
@@ -68,6 +72,12 @@
 	</c:forEach>
 	
 </table>
+
+<div style="width:600px; margin-top:5px; text-align:center;">
+	<c:forEach var="i" begin="1" end="${totalPage}">
+		${i }
+	</c:forEach>
+</div>
 
 <div style="width:600px; margin-top:5px; text-align:right;">
 	<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
