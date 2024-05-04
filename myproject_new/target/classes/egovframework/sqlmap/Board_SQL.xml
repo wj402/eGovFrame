@@ -17,4 +17,72 @@
 			sysdate )
 	</insert>
 	
+	<!-- List > HashMap -->
+	<select id="boardDAO.selectNBoardList" resultClass="egovMap">
+			SELECT b.* FROM (
+				SELECT rownum rn, a.* FROM (
+						SELECT 	
+				               	unq,			
+								title,
+								name,
+								hits,
+								to_char(rdate,'yyyy-mm-dd') rdate
+						FROM
+						nboard
+						
+						<isNotNull property="searchGubun">
+							<isNotNull property="searchText">
+								WHERE $searchGubun$ like  '%$searchText$%'  
+							</isNotNull> 
+						</isNotNull>
+		                
+					ORDER BY unq DESC 
+			) a ) b 
+			WHERE rn >= #startIndex# and rn <![CDATA[<=	]]> #endIndex#
+
+	
+	</select>
+	
+	<select id="boardDAO.selectNBoardTotal" resultClass="java.lang.Integer">
+		SELECT COUNT(*) total FROM nboard
+				<isNotNull property="searchGubun">
+					<isNotNull property="searchText">
+						WHERE $searchGubun$ like  '%$searchText$%'  
+					</isNotNull> 
+				</isNotNull>
+	</select>
+	
+	<select id="boardDAO.selectNBoardDetail" resultClass="boardVO">
+		select 
+			unq,
+			title,
+			name,
+			content,
+			to_char(rdate, 'yyyy-mm-dd') rdate
+		from nboard
+			where unq=#unq#
+	</select>
+	
+	<update id="boardDAO.updateNBoardHits">
+		update nboard set hits=hits+1 where unq=#unq#
+	</update>
+	
+	<update id="boardDAO.updateNBoard">
+		UPDATE nboard SET
+				title = #title#,
+				name = #name#,
+				content = #content#
+			WHERE
+				unq = #unq#
+	</update>
+	
+	<select id="boardDAO.selectNBoardPass" resultClass="java.lang.Integer">
+		SELECT COUNT (*) FROM nboard 
+							WHERE unq=#unq# and pass=#pass#
+	</select>
+	
+	<delete id="boardDAO.deleteNBoard">
+		DELETE FROM nboard
+						WHERE unq=#unq# and pass=#pass#
+	</delete>
 </sqlMap>
