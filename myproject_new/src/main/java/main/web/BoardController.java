@@ -138,4 +138,23 @@ public class BoardController {
 		return "board/passWrite";
 	}
 	
+	@RequestMapping("/boardDelete.do")
+	@ResponseBody
+	public String deleteBoard(BoardVO vo) throws Exception {
+		
+		int result = 0;
+		
+		/*
+		 * 암호 일치 검사 (count = 1; (일치함) // count = 0; (일치하지 않음)
+		 */
+		int count = boardService.selectNBoardPass(vo); // 정상적이라면 count = 1;
+		
+		if( count == 1 ) {
+			result = boardService.deleteNBoard(vo); // 삭제가 됬을시 = result = 1; 
+		} else if ( count == 0 ) {
+			result = -1;
+		}
+		return result+"";
+	}
+	
 }
