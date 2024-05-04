@@ -80,4 +80,9 @@
 		SELECT COUNT (*) FROM nboard 
 							WHERE unq=#unq# and pass=#pass#
 	</select>
+	
+	<delete id="boardDAO.deleteNBoard">
+		DELETE FROM nboard
+						WHERE unq=#unq# and pass=#pass#
+	</delete>
 </sqlMap>
