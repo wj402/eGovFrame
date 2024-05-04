@@ -47,7 +47,7 @@
 <table>
 	<caption>
 		<div>일반게시판 목록</div>
-		<div>Total : ${total }</div>
+		<div align="left">Total : ${total }</div>
 	</caption>
 	<tr>
 		<th width="15%">번호</th>
@@ -75,7 +75,7 @@
 
 <div style="width:600px; margin-top:5px; text-align:center;">
 	<c:forEach var="i" begin="1" end="${totalPage}">
-		${i }
+		<a href="boardList.do?viewPage=${i }">${i }</a>
 	</c:forEach>
 </div>
 

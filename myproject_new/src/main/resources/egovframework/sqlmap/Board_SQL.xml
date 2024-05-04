@@ -33,7 +33,7 @@
 		                
 					ORDER BY unq DESC 
 			) a ) b
-			WHERE rn >= 1 and rn <= 20
+			WHERE rn >= #startIndex# and rn <= #endIndex#
 		]]>
 	
 	</select>
