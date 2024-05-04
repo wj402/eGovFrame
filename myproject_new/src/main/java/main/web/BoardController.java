@@ -39,18 +39,29 @@ public class BoardController {
 	@RequestMapping("/boardList.do")
 	public String selectNBoardList(BoardVO vo, ModelMap model) throws Exception {
 		
+		int unit = 5;
+		
 		// 총 데이터 개수 
 		int total = boardService.selectNBoardTotal(vo);
 		
 		// (double)12/10 -> ceil(1.2) -> Integer(2.0) -> 2
-		int totalPage = (int) Math.ceil((double)total/10);
+		int totalPage = (int) Math.ceil((double)total/unit);
 		
 		int viewPage = vo.getViewPage();
 		// 1 -> 1,10 // 2 -> 11,20 // 3 -> 21,30
 		// startIndex : (1-1)*10 + 1 -> 1
 		// startIndex : (2-1)*10 + 1 -> 11
-		int startIndex = (viewPage-1) * 10 + 1;
-		int endIndex = startIndex + (10-1);
+		int startIndex = (viewPage-1) * unit + 1;
+		int endIndex = startIndex + (unit-1);
+		
+		// total -> 34 (4page)
+		// 1(p) -> 34 ~ 25, 2(p) -> 24 ~ 15, 3(p) -> 14 ~ 5, 4(p) - > 4 ~ 1
+		//int p1 = total -  0; 
+		//int p2 = total - 10;
+		//int p3 = total - 20;
+		//int p4 = total - 30;
+		
+		int startRowNo = total - (viewPage-1)*unit;
 		
 		vo.setStartIndex(startIndex);
 		vo.setEndIndex(endIndex);
@@ -58,6 +69,7 @@ public class BoardController {
 		List<?> list = boardService.selectNBoardList(vo);
 		System.out.println("list :" + list);
 		
+		model.addAttribute("rowNumber", startRowNo);
 		model.addAttribute("total", total);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("resultList", list);
