@@ -30,7 +30,7 @@
 								to_char(rdate,'yyyy-mm-dd') rdate
 						FROM
 						nboard
-							WHERE #searchGubun# like '%#searchText#%'
+							WHERE #searchGubun# like '%#searchText#%'    
 		                
 					ORDER BY unq DESC 
 			) a ) b
