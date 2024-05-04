@@ -104,5 +104,13 @@ public class BoardController {
 		return "board/boardDetail";
 	}
 	
+	@RequestMapping("boardModifyWrite.do")
+	public String selectNBoardModifyWrite(BoardVO vo, ModelMap model) throws Exception {
+		
+		BoardVO boardVO = boardService.selectNBoardDetail(vo.getUnq());
+		model.addAttribute("boardVO", boardVO);
+		
+		return "board/boardModifyWrite";
+	}
 	
 }
