@@ -15,10 +15,25 @@ public class BoardVO {
 	private int startIndex = 1;
 	private int endIndex = 10;
 	
+	private String searchGubun;
+	private String searchText;
+	
 	// get/set 메소드 처리
 	
 	public int getViewPage() {
 		return viewPage;
+	}
+	public String getSearchGubun() {
+		return searchGubun;
+	}
+	public void setSearchGubun(String searchGubun) {
+		this.searchGubun = searchGubun;
+	}
+	public String getSearchText() {
+		return searchText;
+	}
+	public void setSearchText(String searchText) {
+		this.searchText = searchText;
 	}
 	public int getStartIndex() {
 		return startIndex;
