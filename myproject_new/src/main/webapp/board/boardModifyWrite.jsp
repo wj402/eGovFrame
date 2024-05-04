@@ -78,12 +78,15 @@
 			dataType: "text",			// 리턴 타입
 			
 			/* 전송 후 세팅 */
-			success:function(data) {
+			success:function(result) {
 			  //alert(data);
-			  if(data == "1") { // 저장 처리 후 리턴 값 확인
+			  if(result == "1") { // 저장 처리 후 리턴 값 확인
 			  	alert("저장완료");
 				location = "boardList.do";
-			} else {
+			} else if(result == -1) {
+				alert("암호가 일치하지 않습니다.")
+			}
+			  else {
 				alert("저장실패\n관리자에게 연락해주세요. ");
 			}
 		},

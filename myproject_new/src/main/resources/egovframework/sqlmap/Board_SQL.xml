@@ -75,4 +75,9 @@
 			WHERE
 				unq = #unq#
 	</update>
+	
+	<select id="boardDAO.selectNBoardPass" resultClass="java.lang.Integer">
+		SELECT COUNT (*) FROM nboard 
+							WHERE unq=#unq# and pass=#pass#
+	</select>
 </sqlMap>

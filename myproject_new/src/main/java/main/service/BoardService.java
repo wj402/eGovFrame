@@ -32,4 +32,9 @@ public interface BoardService {
 	 * 수정 처리
 	 */
 	public int updateNBoard(BoardVO vo) throws Exception;
+	
+	/*
+	 * 암호확인
+	 */
+	public int selectNBoardPass(BoardVO vo) throws Exception;
 }

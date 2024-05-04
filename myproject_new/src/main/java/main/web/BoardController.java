@@ -116,9 +116,16 @@ public class BoardController {
 	@RequestMapping("boardModifySave.do")
 	@ResponseBody
 	public String updateNBoard(BoardVO vo) throws Exception {
+
+		int result = 0;
 		
-		int result = boardService.updateNBoard(vo);	// int result = 1;
-		
+		int count = boardService.selectNBoardPass(vo); // int count = 1;
+		if ( count == 1 ) {
+			result = boardService.updateNBoard(vo);	// int result = 1;
+			
+		} else {
+			result = -1; 
+		}
 		
 		return result+"";
 	}
