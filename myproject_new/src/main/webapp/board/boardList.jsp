@@ -51,6 +51,7 @@
 		text-align: left;
 		font-size:8pt;
 	}
+	
 </style>
 
 <body>

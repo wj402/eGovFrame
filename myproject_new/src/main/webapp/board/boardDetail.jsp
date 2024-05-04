@@ -4,7 +4,8 @@
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn"      uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<c:set var="content" value="${fn:replace(boardVO.content, '\n', '<br>' ) }"/>
+<% pageContext.setAttribute("newline", "\n"); %>
+<c:set var="content" value="${fn:replace(boardVO.content, newline, '<br>' ) }"/>
 
 <!DOCTYPE html>
 <html>
@@ -110,7 +111,7 @@
 		<tr>
 			<th>내용</th>
 			<td height="50"> <!--  aaa \n -> <br> -->
-				${content }
+				${boardVO.content }
 			</td>
 		</tr>
 		<tr>
