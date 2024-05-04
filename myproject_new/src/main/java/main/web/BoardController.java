@@ -45,6 +45,16 @@ public class BoardController {
 		// (double)12/10 -> ceil(1.2) -> Integer(2.0) -> 2
 		int totalPage = (int) Math.ceil((double)total/10);
 		
+		int viewPage = vo.getViewPage();
+		// 1 -> 1,10 // 2 -> 11,20 // 3 -> 21,30
+		// startIndex : (1-1)*10 + 1 -> 1
+		// startIndex : (2-1)*10 + 1 -> 11
+		int startIndex = (viewPage-1) * 10 + 1;
+		int endIndex = startIndex + (10-1);
+		
+		vo.setStartIndex(startIndex);
+		vo.setEndIndex(endIndex);
+		
 		List<?> list = boardService.selectNBoardList(vo);
 		System.out.println("list :" + list);
 		
