@@ -83,7 +83,7 @@
 			  if(result == "1") { // 저장 처리 후 리턴 값 확인
 			  	alert("저장완료");
 				location = "boardList.do";
-			} else if(result == -1) {
+			} else if(result == "-1") {
 				alert("암호가 일치하지 않습니다.")
 			}
 			  else {

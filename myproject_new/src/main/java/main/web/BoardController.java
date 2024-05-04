@@ -104,7 +104,7 @@ public class BoardController {
 		return "board/boardDetail";
 	}
 	
-	@RequestMapping("boardModifyWrite.do")
+	@RequestMapping("/boardModifyWrite.do")
 	public String selectNBoardModifyWrite(BoardVO vo, ModelMap model) throws Exception {
 		
 		BoardVO boardVO = boardService.selectNBoardDetail(vo.getUnq());
@@ -113,7 +113,7 @@ public class BoardController {
 		return "board/boardModifyWrite";
 	}
 	
-	@RequestMapping("boardModifySave.do")
+	@RequestMapping("/boardModifySave.do")
 	@ResponseBody
 	public String updateNBoard(BoardVO vo) throws Exception {
 
@@ -128,6 +128,14 @@ public class BoardController {
 		}
 		
 		return result+"";
+	}
+	
+	@RequestMapping("/passWrite.do")
+	public String passWrite(int unq, ModelMap model) {
+		
+		model.addAttribute("unq", unq);
+		
+		return "board/passWrite";
 	}
 	
 }
