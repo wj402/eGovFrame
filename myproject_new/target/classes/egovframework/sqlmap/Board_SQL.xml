@@ -52,6 +52,13 @@
 				</isNotNull>
 	</select>
 	
+	<select id="boardDAO.selectNBoardDetail" resultClass="boardVO">
+		select 
+			unq,title,pass,name,content,hits,rdate 
+		from nboard
+			where unq = #unq#
+	</select>
+	
 	
 	
 </sqlMap>
